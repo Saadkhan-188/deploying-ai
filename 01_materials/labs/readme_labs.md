@@ -1,26 +1,26 @@
 Table of contents
 
-0_0 → Prepare and sanitize raw data from sources like Pitchfork.
-01_1 → Set up environment, API keys, and run basic OpenAI requests.
-01_2 → Work with context, prompts, and responses from OpenAI and LMStudio.
-01_3 → Explore local models and test inference on small inputs.
-02-1 → Convert raw text into numerical representations (vectors) using CountVectorizer and TF-IDF.
-02-2 → Measure similarity between texts using embeddings and cosine similarity for retrieval.
-02-3 → Conceptual understanding & local embeddings.
-02-4 → Generate embeddings for small datasets using OpenAI API.
-02-5 → Store and query embeddings efficiently with a vector DB (like Chroma).
-02-6 → Scale the process to large document collections using the Batch API.
-02-7 → Load batch embeddings into a vector DB (Chroma via Docker) and perform context-aware retrieval for LLM tasks.
-03-1 → Evaluate model outputs using logprobs to measure confidence and guide decision-making.
-03-2 → Evaluate RAG outputs by measuring if retrieved documents provide sufficient context.
-03-3 → Evaluate model outputs using perplexity to measure uncertainty and compare confidence levels.
-03-4 → Use LLMs as judges (G-Eval / DeepEval) to systematically score outputs on correctness, relevancy, and alignment with context.
-04-1 → Structure model outputs with Pydantic or TypedDict for downstream processing.
-05-1 → Extend LLMs with tools using function calling and MCP services.
-05-2 → Orchestrate LLMs and tools using LangGraph agents to automate multi-step reasoning and dynamically route requests.
-assignment_1 → Evaluate and enhance summaries of documents using structured outputs and DeepEval metrics.
+### 0_0 → Prepare and sanitize raw data from sources like Pitchfork.
+### 01_1 → Set up environment, API keys, and run basic OpenAI requests.
+### 01_2 → Work with context, prompts, and responses from OpenAI and LMStudio.
+### 01_3 → Explore local models and test inference on small inputs.
+### 02-1 → Convert raw text into numerical representations (vectors) using CountVectorizer and TF-IDF.
+### 02-2 → Measure similarity between texts using embeddings and cosine similarity for retrieval.
+### 02-3 → Conceptual understanding & local embeddings.
+### 02-4 → Generate embeddings for small datasets using OpenAI API.
+### 02-5 → Store and query embeddings efficiently with a vector DB (like Chroma).
+### 02-6 → Scale the process to large document collections using the Batch API.
+### 02-7 → Load batch embeddings into a vector DB (Chroma via Docker) and perform context-aware retrieval for LLM tasks.
+### 03-1 → Evaluate model outputs using logprobs to measure confidence and guide decision-making.
+### 03-2 → Evaluate RAG outputs by measuring if retrieved documents provide sufficient context.
+### 03-3 → Evaluate model outputs using perplexity to measure uncertainty and compare confidence levels.
+### 03-4 → Use LLMs as judges (G-Eval / DeepEval) to systematically score outputs on correctness, relevancy, and alignment with context.
+### 04-1 → Structure model outputs with Pydantic or TypedDict for downstream processing.
+### 05-1 → Extend LLMs with tools using function calling and MCP services.
+### 05-2 → Orchestrate LLMs and tools using LangGraph agents to automate multi-step reasoning and dynamically route requests.
+### assignment_1 → Evaluate and enhance summaries of documents using structured outputs and DeepEval metrics.
 
-[DB 2 JSON](0_data_prep.ipynb) Prepare and clean raw Pitchfork dataset (18,393 articles) for downstream LLM processing.
+[0_data_pred DB 2 JSON](0_data_prep.ipynb) Prepare and clean raw Pitchfork dataset (18,393 articles) for downstream LLM processing.
     CTA: Convert SQL database tables into structured JSONL files suitable for ingestion by LLMs.
     
     Flow: Connect to SQLite → Sanitize Text → Extract Data from Tables → Convert to JSON Lines → Save to Documents Folder
