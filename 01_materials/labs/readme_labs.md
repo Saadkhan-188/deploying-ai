@@ -42,6 +42,8 @@ Table of contents
     
     Flow: Define System Context → Craft User Prompts → Send Request → Receive Response → Parse Output
 
+    English: e-book summary to be fetched normally and with input prompt and developer prompt (instruction)
+
 01_3_local_model.ipynb Run LLM locally via LMStudio or equivalent setup without API calls
 
     CTA: Understand local model deployment, configuration, and inference.
@@ -51,14 +53,8 @@ Table of contents
     
 02_1_representing_text.ipynb  Convert raw text into numerical representations (vectors)
     
-    Focus: How to convert raw text into numerical representations (vectors).
-
-    Goal: Understand and implement vectorization methods.
-
     Techniques Covered:
-
     CountVectorizer → simple word counts
-
     TF-IDF → reweighted counts emphasizing rare words
 
     Output: Document vectors that numerically represent each text.
@@ -176,6 +172,8 @@ Table of contents
     CTA: Build an agent that manages LLM calls, tool invocations, and state to automate multi-step reasoning workflows.  
     
     Flow: Define Tools & Models → Define State → Define Model Node → Define Tool Node → Define Conditional Logic → Build & Compile Agent → Invoke Agent with User Input → Agent Routes Requests and Aggregates Responses  
+
+    English: First we ask a parrot fact to openAI without tool. Then we define tool decorator 
 
 assignment_1.ipynb Evaluate document summaries using structured outputs and DeepEval metrics to automate LLM-based summarization, assessment, and self-correction.
     CTA: Build a workflow that generates structured summaries of documents, evaluates them across multiple metrics, and refines the summary using feedback to improve quality.  
