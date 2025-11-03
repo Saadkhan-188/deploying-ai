@@ -1,6 +1,6 @@
 # Assignment 2
 
-The goal of this assignment is to design and implement an AI system with a conversational interface.
+  ### Design and implement an AI system with a conversational interface.
 
 Before you begin, keep in mind that meeting the requirements is important, but more important is that you solve the technical problems associated with the implementation. The assignment is fairly open-ended and can easily become an expansive project. My recommendation is that you implement a simplified version of the services, before moving to more complex implementation. Remember to test your code constantly.  
 

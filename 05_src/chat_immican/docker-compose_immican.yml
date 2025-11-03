@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+      - chroma_data:/app/chroma_persist
+    depends_on:
+      - postgres
+    environment:
+      - CHROMA_PERSIST_DIR=/app/chroma_persist
+      - POSTGRES_DSN=postgresql://postgres:postgres@postgres:5432/immican
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: immican
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  chroma_data:
+  pgdata:
