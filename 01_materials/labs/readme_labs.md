@@ -113,7 +113,7 @@ Table of contents
     
     CTA: Efficiently generate embeddings for massive datasets without hitting API rate limits  
 
-    Flow: Documents → Text Split → Batch File Preparation → Batch API Upload → Async Embedding Requests → Retrieve Results → Map Text ↔ Embeddings  
+    Flow: Documents → Text Split (Langchain) → Batch File Preparation → Batch API Upload → Async Embedding Requests → Retrieve Results → Map Text ↔ Embeddings  
     
     Challange: 
    
