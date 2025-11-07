@@ -14,14 +14,21 @@ You must include at least **three services** in your system.
 
 ### Service 1: API Calls
 
+05_1 
 * One service must use an API as its back end.
 * You can refer to the list of [public and free APIs on GitHub](https://github.com/public-apis/public-apis).
 * This service may simply return the API’s output to the user, but the response must not be provided verbatim. Instead, transform or rephrase the output, for example, by summarizing, rewriting in a natural tone, or converting structured data into written text.
 
+API > dictionary/Json > pydantic object > LLM 
+
 ### Service 2: Semantic Query
+
 
 * One service must allow users to ask questions that are resolved through a semantic search (or a hybrid approach, such as lexical search followed by semantic search).
 * You may use the datasets introduced in class, or choose your own dataset. 
+
+Input > any format > RAG > output
+Use chromaDB | CSV/Pandas
 
 If you use your own dataset:
 * Please **limit file sizes to 40 MB**, so it can be easily shared via GitHub. Note that GitHub warns about files over 50 MB and we generally want to avoid uploading large files.
