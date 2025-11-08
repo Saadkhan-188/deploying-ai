@@ -3,7 +3,8 @@ from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
-load_dotenv(".secrets")
+load_dotenv(r"D:\DSI\deploying-ai\05_src\.secrets")
+
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
