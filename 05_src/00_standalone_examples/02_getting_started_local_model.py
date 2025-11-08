@@ -5,7 +5,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
-load_dotenv(".secrets")
+load_dotenv(r"D:\DSI\deploying-ai\05_src\.secrets")
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
@@ -25,7 +25,7 @@ def ask_chatgpt(user_message):
     )
     return response
 
-user = "What is a typical taco found in Mexico City?"
+user = "How to make my wife fall in love with me again?"
 
 response = ask_chatgpt(user)
 print(response.output_text)

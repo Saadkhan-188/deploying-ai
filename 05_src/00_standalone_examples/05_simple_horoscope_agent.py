@@ -5,7 +5,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import json
 
-load_dotenv('.secrets')
+load_dotenv(r"D:\DSI\deploying-ai\05_src\.secrets")
 
 client = OpenAI()
 
@@ -35,7 +35,7 @@ input_list = [
 ]
 
 response = client.responses.create(
-    model="gpt-5", 
+    model="gpt-4o", 
     tools = tools,
     input=input_list
 )
