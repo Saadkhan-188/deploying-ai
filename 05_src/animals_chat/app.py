@@ -10,7 +10,7 @@ _logs = get_logger(__name__)
 
 llm = get_animals_chat_agent()
 
-load_dotenv('.secrets')
+load_dotenv(r"D:\DSI\deploying-ai\05_src\.secrets")
 
 def animals_chat(message: str, history: list[dict]) -> str:
     langchain_messages = []

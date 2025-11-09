@@ -12,12 +12,13 @@ import json
 import requests
 from utils.logger import get_logger
 import os
+from dotenv import load_dotenv
 
 
 _logs = get_logger(__name__)
 
 load_dotenv(".env")
-load_dotenv(".secrets")
+load_dotenv(r"D:\DSI\deploying-ai\05_src\.secrets")
 
 
 
