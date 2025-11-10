@@ -1,6 +1,23 @@
+### Service 1: API Calls
+
+# + There are a few API calls that we implemented 
+# throughout the course. They are organized in 
+# tools_animals.py and tool_horoscope.py. 
+
+# + Each tool is imported to main and included in 
+# the list `tools`.
+
+# + The tools node uses LangGraph's `ToolNode` class and 
+# `tools_condition` is the standard tool stopping criteria.
+
+# + All restrictions and tone requirements are 
+# in the instructions prompt. You can find this in prompts.py.
+
+
 from langchain.tools import tool
 import requests
 import json
+
 from utils.logger import get_logger
 
 _logs = get_logger(__name__)

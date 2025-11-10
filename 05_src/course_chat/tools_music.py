@@ -1,10 +1,22 @@
+### Service 2: Semantic Query
+
+# + This simple implementation is based on our 
+# Pitchfork exercise.
+# + The tool is also imported from its tools_*.py file.
+# + Ensure that the Docker implementation of ChromaDB and 
+# Postgres are running.
+
+
 from langchain.tools import tool
 from fastmcp import FastMCP
+
 import chromadb
 from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
 from pydantic import BaseModel, Field
+
 import sqlalchemy as sa
 import pandas as pd
+
 from dotenv import load_dotenv
 from utils.logger import get_logger
 import os
