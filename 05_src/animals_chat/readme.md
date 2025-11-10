@@ -5,8 +5,9 @@ This simple chat app, establishes a connection with OpenAI's chat API, but using
 To run the server:
 python animals_chat/app.py
 
-2025-11-09 - Modification
+2025-11-09 - Modification (Optional)
 def should_continue(state: MessagesState) -> Literal["tool_node", END]: // Original line
 def should_continue(state: MessagesState) -> Literal["tool_node", "END"]: // Modified line
     """Decide if we should continue the loop or stop based upon whether the LLM made a tool call"""
 
+✔
