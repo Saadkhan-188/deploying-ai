@@ -1,4 +1,4 @@
-from course_chat.main import get_graph
+from assignment_chat.main import get_graph
 from langchain_core.messages import HumanMessage, AIMessage
 import gradio as gr
 from dotenv import load_dotenv
@@ -12,7 +12,7 @@ llm = get_graph()
 
 load_dotenv('.secrets')
 
-def course_chat(message: str, history: list[dict]) -> str:
+def assignment_chat(message: str, history: list[dict]) -> str:
     langchain_messages = []
     n = 0
     _logs.debug(f"History: {history}")
@@ -33,10 +33,10 @@ def course_chat(message: str, history: list[dict]) -> str:
     return response['messages'][len(response['messages']) - 1].content
 
 chat = gr.ChatInterface(
-    fn=course_chat,
+    fn=assignment_chat,
     type="messages"
 )
 
 if __name__ == "__main__":
-    _logs.info('Starting Course Chat App...')
+    _logs.info('Starting ImmiAI Chat App...')
     chat.launch()
