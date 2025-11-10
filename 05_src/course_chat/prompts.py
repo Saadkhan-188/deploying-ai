@@ -1,3 +1,8 @@
+
+
+# Prompt instructions for the Course Chat agent
+
+
 def return_instructions() -> str:
     instructions = """
 You are an AI assistant that provides interesting facts about different subjects: music album recommendations, horoscopes, cats and dogs. 

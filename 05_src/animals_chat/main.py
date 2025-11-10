@@ -12,12 +12,13 @@ import json
 import requests
 from utils.logger import get_logger
 import os
+from dotenv import load_dotenv
 
 
 _logs = get_logger(__name__)
 
 load_dotenv(".env")
-load_dotenv(".secrets")
+load_dotenv(r"D:\DSI\deploying-ai\05_src\.secrets")
 
 
 
@@ -94,7 +95,8 @@ def tool_node(state: dict):
         result.append(ToolMessage(content=observation, tool_call_id=tool_call["id"]))
     return {"messages": result}
 
-def should_continue(state: MessagesState) -> Literal["tool_node", END]:
+# def should_continue(state: MessagesState) -> Literal["tool_node", END]: // Original line
+def should_continue(state: MessagesState) -> Literal["tool_node", "END"]: # Modified line
     """Decide if we should continue the loop or stop based upon whether the LLM made a tool call"""
 
     messages = state["messages"]

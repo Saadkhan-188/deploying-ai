@@ -32,3 +32,13 @@ async def main():
         _logs.info(result)
 
 asyncio.run(main())
+
+
+def print_weather(result):
+    """Pretty-print the weather from the MCP call result."""
+    data = result.data  # structured content
+    print(f"Weather in Toronto:")
+    print(f"  Temperature: {data.temperature}°C")
+    print(f"  Humidity: {data.humidity}%")
+    print(f"  Wind Speed: {data.wind_speed} m/s")
+

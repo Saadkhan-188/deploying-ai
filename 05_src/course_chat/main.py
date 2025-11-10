@@ -12,6 +12,7 @@ from course_chat.prompts import return_instructions
 from course_chat.tools_animals import get_cat_facts, get_dog_facts
 from course_chat.tools_horoscope import get_horoscope
 from course_chat.tools_music import recommend_albums
+
 from utils.logger import get_logger
 
 
@@ -46,7 +47,7 @@ def get_graph():
     builder.add_conditional_edges(
         "call_model",
         tools_condition,
-    )
+        )
     builder.add_edge("tools", "call_model")
     graph = builder.compile()
     return graph

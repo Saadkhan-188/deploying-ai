@@ -1,6 +1,6 @@
 # Assignment 2
 
-The goal of this assignment is to design and implement an AI system with a conversational interface.
+  ### Design and implement an AI system with a conversational interface.
 
 Before you begin, keep in mind that meeting the requirements is important, but more important is that you solve the technical problems associated with the implementation. The assignment is fairly open-ended and can easily become an expansive project. My recommendation is that you implement a simplified version of the services, before moving to more complex implementation. Remember to test your code constantly.  
 
@@ -14,14 +14,22 @@ You must include at least **three services** in your system.
 
 ### Service 1: API Calls
 
+05_1 
 * One service must use an API as its back end.
 * You can refer to the list of [public and free APIs on GitHub](https://github.com/public-apis/public-apis).
 * This service may simply return the API’s output to the user, but the response must not be provided verbatim. Instead, transform or rephrase the output, for example, by summarizing, rewriting in a natural tone, or converting structured data into written text.
 
+API > dictionary/Json > pydantic object > LLM 
+
 ### Service 2: Semantic Query
+
+02_2 
 
 * One service must allow users to ask questions that are resolved through a semantic search (or a hybrid approach, such as lexical search followed by semantic search).
 * You may use the datasets introduced in class, or choose your own dataset. 
+
+Input > any format > RAG > output
+Use chromaDB | CSV/Pandas
 
 If you use your own dataset:
 * Please **limit file sizes to 40 MB**, so it can be easily shared via GitHub. Note that GitHub warns about files over 50 MB and we generally want to avoid uploading large files.
@@ -36,6 +44,9 @@ If you use your own dataset:
 * It must make use of one of the following tools:
 
   * [Function Calling](https://platform.openai.com/docs/guides/function-calling) (API calling is acceptable, but not mandatory)
+
+  
+
   * [Web Search](https://platform.openai.com/docs/guides/tools-web-search?api-mode=responses): You may perform simple web searches; if you use **agentic searches**, justify your decision. Avoid using “Deep Research.”
   * [MCP Server Connection](https://platform.openai.com/docs/guides/tools-connectors-mcp): You can explore available servers on [glama.ai](https://glama.ai/mcp/servers).
 

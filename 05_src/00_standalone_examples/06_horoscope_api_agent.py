@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import json
 import requests
 
-load_dotenv('.secrets')
+load_dotenv(r"D:\DSI\deploying-ai\05_src\.secrets")
 
 client = OpenAI()
 
@@ -33,8 +33,8 @@ tools = [
     },
 ]
 
-
-    
+# The function that makes the API call
+# 
 def get_horoscope(sign, day="TODAY"):
     """
     An API call to a horoscope service is made.
@@ -48,8 +48,8 @@ def get_horoscope(sign, day="TODAY"):
     horoscope = get_horoscope_from_response(sign, response)
     return horoscope
 
-
-
+# Helper functions for the API call
+# We need this because we want to separate the API call from the response parsing. 
 def get_horoscope_from_service(sign, day):
     url = "https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily"
     params = {
@@ -59,6 +59,9 @@ def get_horoscope_from_service(sign, day):
     response = requests.get(url, params=params)
     return response
 
+# Helper function to parse the API response
+# in plain english it means: extract the horoscope from the response json to use it in our main function
+
 def get_horoscope_from_response(sign, response):
     resp_dict = json.loads(response.text)
     data = resp_dict.get("data")
@@ -67,18 +70,25 @@ def get_horoscope_from_response(sign, response):
     horoscope = f"Horoscope for {sign.capitalize()} on {date}: {horoscope_data}"
     return horoscope
 
+# Main logic
 
 input_list = [
-    {"role": "user", "content": "What is the horoscope for Sagittarius?"}
+    {"role": "user", "content": "What is the horoscope for Capricorn?"}
 ]
-
+# Initial response to get the function call
 response = client.responses.create(
     model="gpt-5", 
     tools = tools,
     input=input_list
 )
+# Append the response to the input list for further processing
+# it means we are adding the model's response to our conversation history so we can continue the interaction
+# in terms of memory, we are keeping track of the conversation context contracy to the otherwise stateless approach
 
 input_list += response.output
+
+# Process the function call if there is one
+# it means we are checking if the model requested to call a function and if so, we execute that function
 
 for item in response.output:
     if item.type == "function_call":
@@ -96,6 +106,11 @@ for item in response.output:
 
 print("Final input:")
 print(input_list)
+# Final response to get the horoscope from the function call
+# it means we are addng the function call output to the conversation and asking the model to generate a final response based on that
+# in terms of memory, we are ensuring the model has all the necessary information to provide a coherent and contextually relevant answer
+# if we used parse instead of create, we would be parsing an existing response rather than generating a new one 
+# this is important because we want the model to produce a new output based on the updated conversation context
 
 response = client.responses.create(
     model="gpt-5", 

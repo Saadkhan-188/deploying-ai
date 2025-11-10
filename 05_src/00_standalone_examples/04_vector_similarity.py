@@ -16,9 +16,35 @@ documents = [
 
 vectorizer = TfidfVectorizer()
 X = vectorizer.fit_transform(documents)
+
 cosine_similarities = cosine_similarity(X)
 
 simlarities_df = pd.DataFrame(cosine_similarities)
 
 
 simlarities_df.loc[0,:].plot(kind='bar')
+
+import matplotlib.pyplot as plt
+simlarities_df.loc[0,:].plot(kind='bar')
+plt.show()
+
+
+# def semantic_search(query, top_k=3):
+#     # Convert the query into the same TF-IDF space
+#     query_vec = vectorizer.transform([query])
+    
+#     # Compute cosine similarity between query and all documents
+#     similarities = cosine_similarity(query_vec, X).flatten()
+    
+#     # Get indices of top_k highest scores
+#     top_indices = similarities.argsort()[::-1][:top_k]
+    
+#     # # Return results with scores
+#     results = [(documents[i], similarities[i]) for i in top_indices]
+#     return results
+
+# results = semantic_search("What is the meaning of liberty?", top_k=3)
+
+# for text, score in results:
+#     print(f"\nScore: {score:.4f}")
+#     print(text)

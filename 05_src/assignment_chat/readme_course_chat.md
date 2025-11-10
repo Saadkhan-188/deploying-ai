@@ -74,3 +74,68 @@ The file main.py contains the llm model calls that controls the chat. Tools are 
 + Verify that the link is accessible in a private browser window.
 
 If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
+
+
+          ┌───────────────┐
+          │   User Query  │
+          │ "Best Jazz"   │
+          └───────┬───────┘
+                  │
+                  ▼
+        ┌───────────────────┐
+        │   get_context()    │
+        │  (top-level tool) │
+        └───────┬───────────┘
+                  │
+                  ▼
+        ┌─────────────────────────────┐
+        │   get_context_data()        │
+        │  (query ChromaDB collection)│
+        └───────┬───────────┘
+                  │
+          ┌───────▼─────────┐
+          │ ChromaDB Query  │
+          │ Top N Results   │
+          │ IDs + Documents │
+          └───────┬─────────┘
+                  │
+          ┌───────▼────────────┐
+          │ get_reviewid_from_ │
+          │ custom_id()        │
+          │ (extract SQL ID)   │
+          └───────┬────────────┘
+                  │
+          ┌───────▼────────────┐
+          │ additional_details │
+          │  (Fetch from SQL)  │
+          │  title, artist,    │
+          │  score, genre      │
+          └───────┬────────────┘
+                  │
+                  ▼
+        ┌──────────────────────────┐
+        │ Merge SQL metadata +     │
+        │ ChromaDB document text  │
+        │ into single dict        │
+        └───────┬─────────────────┘
+                  │
+                  ▼
+        ┌──────────────────────────┐
+        │ Wrap into MusicReviewData│
+        │  (title, artist, review,│
+        │   score)                 │
+        └───────┬─────────────────┘
+                  │
+                  ▼
+        ┌──────────────────────────┐
+        │ Return list of structured │
+        │ MusicReviewData objects  │
+        │ to LangGraph / MCP tool  │
+        └──────────────────────────┘
+
+## Key Points:
+
+- ChromaDB: Provides relevant text based on semantic search.
+- Postgres SQL: Provides metadata like title, artist, score, genre.
+- Helper function: get_reviewid_from_custom_id() bridges ChromaDB IDs to SQL IDs.
+- Final output: Always structured as MusicReviewData, ensuring the tool has     predictable fields.
