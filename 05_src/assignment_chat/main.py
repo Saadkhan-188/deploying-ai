@@ -10,7 +10,7 @@ import os
 
 from assignment_chat.prompts import return_instructions
 from assignment_chat.tools_job import get_canadian_wage_data
-from assignment_chat.tools_living import get_cost_of_living
+from assignment_chat.tools_living import get_cost_of_living_by_country
 from assignment_chat.tools_music import recommend_albums
 
 from utils.logger import get_logger
@@ -24,7 +24,7 @@ load_dotenv(".secrets")
 chat_agent = init_chat_model(
     "openai:gpt-4o-mini",
 )
-tools = [get_canadian_wage_data, get_cost_of_living, recommend_albums]
+tools = [get_canadian_wage_data, get_cost_of_living_by_country, recommend_albums]
 
 instructions = return_instructions()
 
