@@ -24,16 +24,21 @@ _logs = get_logger(__name__)
 load_dotenv()
 load_dotenv(".secrets")
 
-
+# Initialize ChromaDB client and collection
 vector_db_client_url="http://localhost:8000"
 chroma = chromadb.HttpClient(host=vector_db_client_url)
+
+# So when you query the database, Chroma says:
+#   "Convert the query text into an embedding using OpenAI, then return the 
+#        closest matching stored review embeddings."
+
 collection = chroma.get_collection(name="pitchfork_reviews", 
                                    embedding_function=OpenAIEmbeddingFunction(
                                        api_key = os.getenv("OPENAI_API_KEY"),
                                        model_name="text-embedding-3-small")
                                    )
 
-
+# Define the structured response model
 class MusicReviewData(BaseModel):
     """Structured music review data response."""
     title: str = Field(..., description="The title of the album.")
